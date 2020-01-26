@@ -28,7 +28,7 @@ int main(void)
     }
   }
 
-  for (i = 0; i < ASCII_LENGTH; i++)
+  for (i = ASCII_LENGTH - 1; i >= 0; i--)
   {
     if (unique[i] != 0)
     {
@@ -44,11 +44,17 @@ int main(void)
       {
         printf("\n%2c | ", i);
       }
-      for (j = 0; j < unique[i]; i++)
+      for (j = 0; j < unique[i]; j++)
       {
         printf("# ");
       }
     }
+  }
+
+  printf("\n%*c--", 3, ' ');
+  for (i = 0; i < max; i++)
+  {
+    printf("--");
   }
 
   printf("\n%*c", 5, ' ');
