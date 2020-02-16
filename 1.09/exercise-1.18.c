@@ -15,7 +15,10 @@ int main(void)
   char c;
   char line[MAX_LINE];
 
-  while ((len = get_line(line)) != -1) {
+  while (1) {
+    
+    len = get_line(line);
+    if(len == -1) { break; }
     if(len > 0) {
       printf("string: %s, length: %d\n", line, len);
       int trim_len = trim(line);    

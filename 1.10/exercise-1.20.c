@@ -21,8 +21,12 @@ int main(void)
   int len;
   char line[MAX_LINE];
 
-  while ((len = get_line(line)) > 0) {
-    detab(line);
+  while (1) {
+		len = get_line(line);
+
+		if(len == -1) { break; }
+    
+		detab(line);
     printf("%s\n", line);
     //debug(line);
   }
@@ -34,6 +38,10 @@ int get_line(char line[])
   for (i = 0; i < MAX_LINE && (c=getchar()) != EOF && c!='\n'; ++i) {
     line[i] = c;
   }
+
+	if (c == EOF) {
+		return -1;
+	}
 
   line[i] = '\0';
 
